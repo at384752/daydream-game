@@ -52,10 +52,16 @@ func _process(_delta: float) -> void:
 			anim.play("walk")
 	
 	if Input.is_action_just_pressed("up"):
-		anim.play("jump")
+		if get_node("../Robot").picked:
+			anim.play("jump_hold")
+		else:
+			anim.play("jump")
 	
 	if velocity.y > 0:
-		anim.play("fall")
+		if get_node("../Robot").picked:
+			anim.play("fall_hold")
+		else:
+			anim.play("fall")
 	
 	if not Input.is_anything_pressed() and is_on_floor():
 		if get_node("../Robot").picked:
