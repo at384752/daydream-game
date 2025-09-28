@@ -39,11 +39,17 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("left") and is_on_floor():
 		anim.set_flip_h(false)
-		anim.play("walk")
+		if get_node("../Robot").picked:
+			anim.play("walk_hold")
+		else:
+			anim.play("walk")
 	
 	if Input.is_action_pressed("right") and is_on_floor():
 		anim.set_flip_h(true)
-		anim.play("walk")
+		if get_node("../Robot").picked:
+			anim.play("walk_hold")
+		else:
+			anim.play("walk")
 	
 	if Input.is_action_just_pressed("up"):
 		anim.play("jump")
@@ -52,7 +58,10 @@ func _process(_delta: float) -> void:
 		anim.play("fall")
 	
 	if not Input.is_anything_pressed() and is_on_floor():
-		anim.play("idle")
+		if get_node("../Robot").picked:
+			anim.play("idle_hold")
+		else:
+			anim.play("idle")
 	
 	if Input.is_action_just_pressed("left") and not is_on_floor():
 		anim.set_flip_h(false)

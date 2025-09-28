@@ -20,15 +20,15 @@ func _input(_event: InputEvent) -> void:
 		picked = false
 		get_node("../Player").canPickUp = true
 		if not get_node("../Player").anim.flip_h:
-			apply_impulse(Vector2(), Vector2(90, -10))
+			apply_central_impulse(Vector2())
 		else:
-			apply_impulse(Vector2(), Vector2(-90, -10))
+			apply_central_impulse(Vector2())
 	
-	# 
-	if Input.is_action_just_pressed("pick up") and picked:
+	# Throw held item when pressing Q
+	if Input.is_action_just_pressed("throw") and picked:
 		picked = false
 		get_node("../Player").canPickUp = true
 		if not get_node("../Player").anim.flip_h:
-			apply_impulse(Vector2(), Vector2(150, -200))
+			apply_central_impulse(Vector2(-500, -750))
 		else:
-			apply_impulse(Vector2(), Vector2(-150, -200))
+			apply_central_impulse(Vector2(500, -750))
