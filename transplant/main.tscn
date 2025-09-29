@@ -7599,7 +7599,7 @@ position = Vector2(0, -68)
 position = Vector2(1.1444092e-05, 2.9999866)
 scale = Vector2(0.25583667, 0.26556414)
 sprite_frames = SubResource("SpriteFrames_5vw27")
-animation = &"walk"
+animation = &"jump"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(534, 465)
@@ -7611,7 +7611,6 @@ tile_set = SubResource("TileSet_5vw27")
 position = Vector2(453, 478)
 disable_mode = 2
 collision_layer = 4
-lock_rotation = true
 script = ExtResource("4_1bvp3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Robot"]
