@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Daydream Game Jam"
-run/main_scene="uid://cqow47bch5ocs"
+config/name="Transplant"
+run/main_scene="uid://436f5lpw8hu6"
 config/features=PackedStringArray("4.5", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [input]
