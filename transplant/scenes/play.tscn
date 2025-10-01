@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=4 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Texture2D" uid="uid://climrm7cyg5ha" path="res://textures/tile left.png" id="1_65v2a"]
+[ext_resource type="Texture2D" uid="uid://cxfbivuv5dqcn" path="res://textures/tile right.png" id="2_j27tm"]
+[ext_resource type="Texture2D" uid="uid://djpspcvt8supm" path="res://textures/tile mid.png" id="3_1o7w5"]
+[ext_resource type="PackedScene" uid="uid://bxku1r4g5v6ku" path="res://scenes/player.tscn" id="4_nak7m"]
+[ext_resource type="PackedScene" uid="uid://cgdpk0jobn60h" path="res://scenes/robot.tscn" id="5_efqae"]
+[ext_resource type="PackedScene" uid="uid://cff20udm0sxjc" path="res://scenes/button.tscn" id="6_j27tm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dg77c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ycdy4"]
+texture = ExtResource("1_65v2a")
+2:1/size_in_atlas = Vector2i(6, 7)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46, -50, 46, -53, 46.640057, 12.925827, 47, 50, -46, 51)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vivmo"]
+texture = ExtResource("2_j27tm")
+20:1/size_in_atlas = Vector2i(7, 7)
+20:1/0 = 0
+20:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-56, -56, 50, -55, 51, 48, -57, 48)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w48qg"]
+texture = ExtResource("3_1o7w5")
+texture_region_size = Vector2i(16, 15)
+11:1/size_in_atlas = Vector2i(6, 7)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46, -50, 46, -53, 46.640057, 12.925827, 47, 50, -46, 51)
+
+[sub_resource type="TileSet" id="TileSet_5vw27"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_dg77c")
+sources/0 = SubResource("TileSetAtlasSource_ycdy4")
+sources/2 = SubResource("TileSetAtlasSource_w48qg")
+sources/1 = SubResource("TileSetAtlasSource_vivmo")
+
+[node name="Node" type="Node"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(534, 465)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AADj/woAAAACAAEAAADo/woAAgALAAEAAADt/woAAgALAAEAAADy/woAAgALAAEAAAD3/woAAgALAAEAAAD8/woAAgALAAEAAAABAAoAAgALAAEAAAAGAAoAAgALAAEAAAALAAoAAgALAAEAAAAQAAoAAgALAAEAAAAVAAoAAgALAAEAAAAaAAoAAgALAAEAAAAgAAoAAQAUAAEAAADu//X/AQAEAA4AAADj//X/AQAEAA4AAAA=")
+tile_set = SubResource("TileSet_5vw27")
+
+[node name="Player" parent="." instance=ExtResource("4_nak7m")]
+position = Vector2(367, 464)
+
+[node name="Robot" parent="." instance=ExtResource("5_efqae")]
+position = Vector2(482, 510)
+
+[node name="Button" parent="." instance=ExtResource("6_j27tm")]
+position = Vector2(663, 498)

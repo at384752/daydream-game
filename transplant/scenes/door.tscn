@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dig06koppd2hn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hun61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba8gm"]
+
+[node name="Door" type="AnimatableBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_hun61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ba8gm")
