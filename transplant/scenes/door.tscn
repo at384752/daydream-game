@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dig06koppd2hn"]
+[gd_scene load_steps=4 format=3 uid="uid://dig06koppd2hn"]
+
+[ext_resource type="Script" uid="uid://c7o5es1ryttrj" path="res://scripts/door.gd" id="1_hpvv5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hun61"]
 
@@ -6,6 +8,9 @@
 
 [node name="Door" type="AnimatableBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_hun61")
+script = ExtResource("1_hpvv5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ba8gm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

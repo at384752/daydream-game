@@ -1284,7 +1284,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Robot" type="RigidBody2D" groups=["Blocks"]]
+[node name="Robot" type="RigidBody2D"]
 disable_mode = 2
 collision_layer = 4
 script = ExtResource("1_dfm56")

@@ -15,7 +15,7 @@ func _input(_event: InputEvent) -> void:
 				picked = true
 				get_node("../Player").canPickUp = false
 	
-	# Drop held item when pressing down
+	# Drop held item when pressing S
 	if Input.is_action_just_pressed("down") and picked:
 		picked = false
 		get_node("../Player").canPickUp = true

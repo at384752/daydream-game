@@ -5,7 +5,7 @@ extends StaticBody2D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var bodies = $Area2D.get_overlapping_bodies()
-	if bodies != null:
+	if not bodies.is_empty():
 		for body in bodies:
 			if body.name == "Player" or body.name == "Robot":
 				anim.set_frame(1)
