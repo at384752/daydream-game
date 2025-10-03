@@ -8,6 +8,8 @@ const BLOCK_MAX_VELOCITY = 180
 
 var canPickUp = true
 
+@onready var area = $Area2D
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -29,7 +31,7 @@ func _physics_process(delta: float) -> void:
 
 @onready var anim = $AnimatedSprite2D
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Input.is_action_pressed("left") and is_on_floor():
 		anim.set_flip_h(false)
 		if get_node("../Robot").picked:
@@ -67,3 +69,11 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("right") and not is_on_floor():
 		anim.set_flip_h(true)
+	
+	var bodies = area.get_overlapping_bodies()
+	if not bodies.is_empty():
+		for body in bodies:
+			if body.name.contains("Door"):
+				var position_a = self.position + Vector2(0, -2)
+				var position_b = self.position + Vector2(velocity.x * delta, -2)
+				self.position = position_a.lerp(position_b, delta)

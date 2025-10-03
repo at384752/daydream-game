@@ -29,7 +29,7 @@ func _input(_event: InputEvent) -> void:
 		get_node("../Player").canPickUp = true
 		if not get_node("../Player").anim.flip_h:
 			set_freeze_enabled(false)
-			apply_impulse(Vector2(-500, -500))
+			apply_impulse(Vector2(-500, -250))
 		else:
 			set_freeze_enabled(false)
-			apply_impulse(Vector2(500, -500))
+			apply_impulse(Vector2(500, -250))

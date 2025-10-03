@@ -35,7 +35,7 @@ texture = ExtResource("4_efqae")
 texture_region_size = Vector2i(20, 20)
 0:0/size_in_atlas = Vector2i(5, 5)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -48, 48, -48, 48, 48, -48, 48)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50.666668, -48, 50.666668, -48, 50.666668, 50.666668, -50.666668, 50.666668)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rn3jn"]
 texture = ExtResource("5_e1qq8")
@@ -56,20 +56,28 @@ sources/9 = SubResource("TileSetAtlasSource_rn3jn")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(534, 465)
-scale = Vector2(0.6, 0.6)
-tile_map_data = PackedByteArray("AAAfAAsACAAAAAAAAAAZAAsACAAAAAAAAAATAAsACAAAAAAAAAANAAsACAAAAAAAAAAHAAsACAAAAAAAAAABAAsACAAAAAAAAAD7/wsACAAAAAAAAAD1/wsACAAAAAAAAADv/wsACAAAAAAAAAA=")
+scale = Vector2(0.65, 0.65)
+tile_map_data = PackedByteArray("AAAfAAsACAAAAAAAAAAZAAsACAAAAAAAAAATAAsACAAAAAAAAAANAAsACAAAAAAAAAAHAAsACAAAAAAAAAABAAsACAAAAAAAAAD7/wsACAAAAAAAAAD1/wsACAAAAAAAAADv/wsACAAAAAAAAADp/wsACAAAAAAAAADj/wsACAAAAAAAAADd/wsACAAAAAAAAAArAAsACAAAAAAAAAAxAAsACAAAAAAAAAA3AAsACAAAAAAAAAA=")
 tile_set = SubResource("TileSet_5vw27")
 
 [node name="Player" parent="." instance=ExtResource("4_nak7m")]
-position = Vector2(374, 481)
+position = Vector2(398, 488)
 
 [node name="Robot" parent="." instance=ExtResource("5_efqae")]
 position = Vector2(485, 528)
 
-[node name="Button" parent="." instance=ExtResource("6_j27tm")]
-position = Vector2(679, 516)
+[node name="Button1" parent="." instance=ExtResource("6_j27tm")]
+position = Vector2(676, 526)
 link_code = 1
 
-[node name="Door" parent="." instance=ExtResource("7_1o7w5")]
-position = Vector2(908, 524)
+[node name="Door1" parent="." instance=ExtResource("7_1o7w5")]
+position = Vector2(939, 527)
 link_code = 1
+
+[node name="Button2" parent="." instance=ExtResource("6_j27tm")]
+position = Vector2(263, 525)
+link_code = 2
+
+[node name="Door2" parent="." instance=ExtResource("7_1o7w5")]
+position = Vector2(125, 527)
+link_code = 2

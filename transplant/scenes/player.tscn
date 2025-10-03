@@ -1,4 +1,4 @@
-[gd_scene load_steps=776 format=3 uid="uid://bxku1r4g5v6ku"]
+[gd_scene load_steps=777 format=3 uid="uid://bxku1r4g5v6ku"]
 
 [ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://scripts/player.gd" id="1_1ockd"]
 [ext_resource type="Texture2D" uid="uid://vscvwo6gtjco" path="res://spritesheets/spritesheet_jump.png" id="2_nisan"]
@@ -6265,6 +6265,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
+size = Vector2(47, 4)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_1ockd")
@@ -6281,3 +6284,9 @@ position = Vector2(0, -75)
 scale = Vector2(0.25583667, 0.26556414)
 sprite_frames = SubResource("SpriteFrames_e7i14")
 animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_fjrip")
