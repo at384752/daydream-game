@@ -14,11 +14,13 @@ func _input(_event: InputEvent) -> void:
 			if body.name == "Player" and get_node("../Player").canPickUp:
 				picked = true
 				get_node("../Player").canPickUp = false
+				set_freeze_enabled(true)
 	
 	# Drop held item when pressing S
 	if Input.is_action_just_pressed("down") and picked:
 		picked = false
 		get_node("../Player").canPickUp = true
+		set_freeze_enabled(false)
 		apply_central_force(Vector2())
 	
 	# Throw held item when pressing Q
@@ -26,6 +28,8 @@ func _input(_event: InputEvent) -> void:
 		picked = false
 		get_node("../Player").canPickUp = true
 		if not get_node("../Player").anim.flip_h:
-			apply_impulse(Vector2(-500, -750))
+			set_freeze_enabled(false)
+			apply_impulse(Vector2(-500, -500))
 		else:
-			apply_impulse(Vector2(500, -750))
+			set_freeze_enabled(false)
+			apply_impulse(Vector2(500, -500))
