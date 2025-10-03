@@ -27,9 +27,13 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("throw") and picked:
 		picked = false
 		get_node("../Player").canPickUp = true
-		if not get_node("../Player").anim.flip_h:
+		
+		if Input.is_action_pressed("up") and not (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 			set_freeze_enabled(false)
-			apply_impulse(Vector2(-500, -250))
+			apply_impulse(Vector2(0, get_node("../Player").velocity.y - 400))
+		else: if not get_node("../Player").anim.flip_h:
+			set_freeze_enabled(false)
+			apply_impulse(Vector2(get_node("../Player").velocity.x - 400, -250))
 		else:
 			set_freeze_enabled(false)
-			apply_impulse(Vector2(500, -250))
+			apply_impulse(Vector2(get_node("../Player").velocity.x + 400, -250))

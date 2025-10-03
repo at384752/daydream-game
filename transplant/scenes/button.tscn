@@ -1,26 +1,26 @@
 [gd_scene load_steps=9 format=3 uid="uid://cff20udm0sxjc"]
 
 [ext_resource type="Script" uid="uid://cm6bhje3covhu" path="res://scripts/button.gd" id="1_rhj8v"]
-[ext_resource type="Texture2D" uid="uid://122tgjeckawb" path="res://spritesheets/spritesheet_button_temp.png" id="2_3q610"]
+[ext_resource type="Texture2D" uid="uid://bwhaxki0ny11p" path="res://spritesheets/spritesheet_button.png" id="2_rhj8v"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4tde"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lj86r"]
-atlas = ExtResource("2_3q610")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q610"]
+atlas = ExtResource("2_rhj8v")
 region = Rect2(1682, 0, 1682, 1052)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d7rpu"]
-atlas = ExtResource("2_3q610")
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7y4x"]
+atlas = ExtResource("2_rhj8v")
 region = Rect2(0, 0, 1682, 1052)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxja4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lj86r")
+"texture": SubResource("AtlasTexture_3q610")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d7rpu")
+"texture": SubResource("AtlasTexture_i7y4x")
 }],
 "loop": true,
 "name": &"default",
@@ -28,29 +28,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt4la"]
-size = Vector2(85, 12)
+size = Vector2(85, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4amfo"]
-size = Vector2(64, 15)
+size = Vector2(80, 10)
 
 [node name="Button" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_n4tde")
 script = ExtResource("1_rhj8v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3.0517578e-05, 12.000008)
-scale = Vector2(0.13287751, 0.15161595)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_vxja4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 26)
+position = Vector2(-3, 3)
 shape = SubResource("RectangleShape2D_lt4la")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 13.5)
+position = Vector2(-2, -9)
 shape = SubResource("RectangleShape2D_4amfo")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_button_pressed"]
