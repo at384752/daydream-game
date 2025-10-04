@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d26xyhqtu1n5a"]
+
+[ext_resource type="Texture2D" uid="uid://b7j7fkrebli68" path="res://textures/trash heap.png" id="1_3xixx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_exrr5"]
+
+[node name="Trash" type="StaticBody2D"]
+z_index = -1
+physics_material_override = SubResource("PhysicsMaterial_exrr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_3xixx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(-90, 23, -88, 3, -74, 1, -70, -17, -68, -29, -40, -41, -21, -30, 18, -29, 36, -39, 54, -30, 63, -11, 84, 9, 86, 22, 39, 32, -41, 32)

@@ -6276,6 +6276,7 @@ script = ExtResource("1_1ockd")
 shape = SubResource("RectangleShape2D_v54eb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -40)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -75)

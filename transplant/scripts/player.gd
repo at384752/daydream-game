@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -500.0
 const PUSH_FORCE = 100
 const BLOCK_MAX_VELOCITY = 180
 
@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 	var bodies = area.get_overlapping_bodies()
 	if not bodies.is_empty():
 		for body in bodies:
-			if body.name.contains("Door"):
+			if (body.name.contains("Door") or body.name.contains("Button")) and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 				var position_a = self.position + Vector2(0, -2)
 				var position_b = self.position + Vector2(velocity.x * delta, -2)
 				self.position = position_a.lerp(position_b, delta)
