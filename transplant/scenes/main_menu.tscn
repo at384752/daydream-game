@@ -58,13 +58,6 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rhts7")
 text = "Options"
 metadata/_edit_use_anchors_ = true
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rhts7")
-text = "Exit"
-metadata/_edit_use_anchors_ = true
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -83,4 +76,3 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_pressed"]
