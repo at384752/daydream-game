@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=23 format=4 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="Texture2D" uid="uid://climrm7cyg5ha" path="res://textures/tile left.png" id="1_2os1m"]
 [ext_resource type="Script" uid="uid://p645sgcxqyjd" path="res://scripts/level_1.gd" id="1_go7sj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dig06koppd2hn" path="res://scenes/door.tscn" id="10_isj1j"]
 [ext_resource type="PackedScene" uid="uid://d26xyhqtu1n5a" path="res://scenes/trash.tscn" id="11_so66j"]
 [ext_resource type="PackedScene" uid="uid://8q4e8mbj1j1" path="res://scenes/pause_menu.tscn" id="13_7gny6"]
+[ext_resource type="PackedScene" uid="uid://dghoqft7scww2" path="res://scenes/menu_button.tscn" id="14_2aecg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2os1m"]
 
@@ -136,6 +137,6 @@ offset_right = 4390.0
 offset_bottom = 64.0
 text = "Both robots must reach the end."
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="PauseMenu" parent="." instance=ExtResource("13_7gny6")]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_7gny6")]
+[node name="MenuButton" parent="." instance=ExtResource("14_2aecg")]

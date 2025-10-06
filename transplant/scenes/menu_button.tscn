@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dghoqft7scww2"]
+
+[ext_resource type="Script" uid="uid://y4g6dyha6jhk" path="res://scripts/menu_button.gd" id="1_xsssc"]
+
+[node name="MenuButton" type="CanvasLayer"]
+script = ExtResource("1_xsssc")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 57.32608
+offset_top = 8.000001
+offset_right = 100.40872
+offset_bottom = 58.0
+rotation = 1.5707964
+theme_override_font_sizes/font_size = 30
+text = "III"
+
+[connection signal="pressed" from="Control/MenuButton" to="." method="_on_menu_button_pressed"]
