@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=22 format=4 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="Texture2D" uid="uid://climrm7cyg5ha" path="res://textures/tile left.png" id="1_2os1m"]
+[ext_resource type="Script" uid="uid://p645sgcxqyjd" path="res://scripts/level_1.gd" id="1_go7sj"]
 [ext_resource type="Texture2D" uid="uid://cxfbivuv5dqcn" path="res://textures/tile right.png" id="2_go7sj"]
 [ext_resource type="Texture2D" uid="uid://djpspcvt8supm" path="res://textures/tile mid.png" id="3_7gny6"]
 [ext_resource type="Texture2D" uid="uid://ddlu2535a0kgf" path="res://textures/tile basic dark.png" id="4_2aecg"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cff20udm0sxjc" path="res://scenes/button.tscn" id="9_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://dig06koppd2hn" path="res://scenes/door.tscn" id="10_isj1j"]
 [ext_resource type="PackedScene" uid="uid://d26xyhqtu1n5a" path="res://scenes/trash.tscn" id="11_so66j"]
+[ext_resource type="PackedScene" uid="uid://8q4e8mbj1j1" path="res://scenes/pause_menu.tscn" id="13_7gny6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2os1m"]
 
@@ -62,7 +64,8 @@ sources/8 = SubResource("TileSetAtlasSource_7nomh")
 sources/9 = SubResource("TileSetAtlasSource_1s4pk")
 sources/3 = SubResource("TileSetAtlasSource_6dial")
 
-[node name="Node" type="Node"]
+[node name="Level1" type="Node"]
+script = ExtResource("1_go7sj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -132,3 +135,7 @@ offset_top = 41.0
 offset_right = 4390.0
 offset_bottom = 64.0
 text = "Both robots must reach the end."
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_7gny6")]

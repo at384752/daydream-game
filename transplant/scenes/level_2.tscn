@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dv04ng6tkj2n5"]
+[gd_scene load_steps=13 format=4 uid="uid://dv04ng6tkj2n5"]
 
 [ext_resource type="Texture2D" uid="uid://c67nd7tijfx6n" path="res://textures/tile basic + ground.png" id="1_eqxsl"]
 [ext_resource type="Texture2D" uid="uid://ircbtdvmcx6i" path="res://textures/tile basic.png" id="2_b4j7a"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgdpk0jobn60h" path="res://scenes/robot.tscn" id="5_b4j7a"]
 [ext_resource type="PackedScene" uid="uid://dig06koppd2hn" path="res://scenes/door.tscn" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://cff20udm0sxjc" path="res://scenes/button.tscn" id="7_y0kc7"]
+[ext_resource type="PackedScene" uid="uid://8q4e8mbj1j1" path="res://scenes/pause_menu.tscn" id="8_ne2mo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne2mo"]
 texture = ExtResource("1_eqxsl")
@@ -55,3 +56,7 @@ link_code = 1
 position = Vector2(-501, 415)
 rotation = -1.5707964
 link_code = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_ne2mo")]
