@@ -2,6 +2,9 @@ extends RigidBody2D
 
 var picked = false
 
+func _ready() -> void:
+	$AnimatedSprite2D.play("idle")
+
 func _physics_process(_delta: float) -> void:
 	if picked:
 		self.position = get_node("../Player/Marker2D").global_position

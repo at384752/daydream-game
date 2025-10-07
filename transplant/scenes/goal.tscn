@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctalavq7bsu4n"]
+[gd_scene load_steps=5 format=3 uid="uid://ctalavq7bsu4n"]
 
 [ext_resource type="Script" uid="uid://cuq4dc0a7e4cy" path="res://scripts/goal.gd" id="1_jbojv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl315"]
 
-[node name="Goal" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbojv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jbojv"]
+
+[node name="Goal" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_jbojv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xl315")
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jbojv")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_jbojv")
