@@ -85,7 +85,7 @@ animations = [{
 size = Vector2(61, 60.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
-size = Vector2(57.75, 59.5)
+size = Vector2(62, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83dcw"]
 size = Vector2(52, 122)
@@ -195,7 +195,7 @@ position = Vector2(-14.5, 57.375)
 shape = SubResource("RectangleShape2D_ba8gm")
 
 [node name="CollisionShape2D_TileTop" type="CollisionShape2D" parent="."]
-position = Vector2(-13.875, -130.75)
+position = Vector2(-14, -131)
 shape = SubResource("RectangleShape2D_uvdjg")
 
 [node name="CollisionShape2D_TileDoor" type="CollisionShape2D" parent="."]

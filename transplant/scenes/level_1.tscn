@@ -1,14 +1,14 @@
 [gd_scene load_steps=25 format=4 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="Texture2D" uid="uid://climrm7cyg5ha" path="res://textures/tile left.png" id="1_2os1m"]
-[ext_resource type="Script" uid="uid://p645sgcxqyjd" path="res://scripts/level_1.gd" id="1_go7sj"]
+[ext_resource type="Script" uid="uid://p645sgcxqyjd" path="res://scripts/level.gd" id="1_go7sj"]
 [ext_resource type="Texture2D" uid="uid://cxfbivuv5dqcn" path="res://textures/tile right.png" id="2_go7sj"]
 [ext_resource type="Texture2D" uid="uid://djpspcvt8supm" path="res://textures/tile mid.png" id="3_7gny6"]
 [ext_resource type="Texture2D" uid="uid://ddlu2535a0kgf" path="res://textures/tile basic dark.png" id="4_2aecg"]
 [ext_resource type="Texture2D" uid="uid://c67nd7tijfx6n" path="res://textures/tile basic + ground.png" id="5_6dial"]
 [ext_resource type="Texture2D" uid="uid://ircbtdvmcx6i" path="res://textures/tile basic.png" id="6_7nomh"]
-[ext_resource type="PackedScene" uid="uid://bxku1r4g5v6ku" path="res://scenes/player.tscn" id="7_1s4pk"]
-[ext_resource type="PackedScene" uid="uid://cgdpk0jobn60h" path="res://scenes/robot.tscn" id="8_x2xxo"]
+[ext_resource type="PackedScene" uid="uid://bxku1r4g5v6ku" path="res://scenes/player_1.tscn" id="7_1s4pk"]
+[ext_resource type="PackedScene" uid="uid://cgdpk0jobn60h" path="res://scenes/robot_1.tscn" id="8_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://cff20udm0sxjc" path="res://scenes/button.tscn" id="9_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://dig06koppd2hn" path="res://scenes/door.tscn" id="10_isj1j"]
 [ext_resource type="PackedScene" uid="uid://d26xyhqtu1n5a" path="res://scenes/trash.tscn" id="11_so66j"]
@@ -121,11 +121,13 @@ offset_bottom = 299.0
 text = "Press SPACE to jump"
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 2640.0
-offset_top = 64.0
-offset_right = 2771.0
-offset_bottom = 87.0
-text = "Press Z to pick up"
+offset_left = 2597.0
+offset_top = 29.0
+offset_right = 2858.0
+offset_bottom = 78.0
+text = "Press Z to pick up
+Press the down arrow key to drop"
+horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="."]
 offset_left = 3448.0
@@ -139,7 +141,9 @@ offset_left = 4139.0
 offset_top = 41.0
 offset_right = 4390.0
 offset_bottom = 64.0
-text = "Both robots must reach the end."
+text = "Press C to sacrifice.
+Both robots must reach the end."
+horizontal_alignment = 1
 
 [node name="PauseMenu" parent="." instance=ExtResource("13_7gny6")]
 

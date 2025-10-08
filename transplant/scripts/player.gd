@@ -3,8 +3,6 @@ extends CharacterBody2D
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
-const PUSH_FORCE = 100
-const BLOCK_MAX_VELOCITY = 180
 
 var canPickUp = true
 
