@@ -2,10 +2,8 @@ extends RigidBody2D
 
 var picked = false
 
-@onready var arm = $Area2D2
-
 func _ready() -> void:
-	$AnimatedSprite2D.play("idle")
+	$AnimatedSprite2D.play("idle_up")
 	set_freeze_mode(FREEZE_MODE_KINEMATIC)
 
 func _physics_process(_delta: float) -> void:

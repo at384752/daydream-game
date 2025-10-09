@@ -1,0 +1,63 @@
+[gd_scene load_steps=14 format=4 uid="uid://crfogpqvbxfwv"]
+
+[ext_resource type="Texture2D" uid="uid://c67nd7tijfx6n" path="res://textures/tile basic + ground.png" id="1_uwxec"]
+[ext_resource type="Texture2D" uid="uid://ircbtdvmcx6i" path="res://textures/tile basic.png" id="2_1pn4d"]
+[ext_resource type="Texture2D" uid="uid://ddlu2535a0kgf" path="res://textures/tile basic dark.png" id="3_ah8om"]
+[ext_resource type="PackedScene" uid="uid://c7g0vfckucynu" path="res://scenes/player_2.tscn" id="4_1pn4d"]
+[ext_resource type="PackedScene" uid="uid://ya0uddm1wm7v" path="res://scenes/robot_2.tscn" id="5_wae8j"]
+[ext_resource type="PackedScene" uid="uid://c4r24a30x7sru" path="res://scenes/lily_gate.tscn" id="6_ha73p"]
+[ext_resource type="PackedScene" uid="uid://8q4e8mbj1j1" path="res://scenes/pause_menu.tscn" id="7_vcx5n"]
+[ext_resource type="PackedScene" uid="uid://dghoqft7scww2" path="res://scenes/menu_button.tscn" id="8_56dhn"]
+[ext_resource type="PackedScene" uid="uid://dtb5fy6bi67cu" path="res://scenes/robot_3.tscn" id="9_ha73p"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p6vls"]
+texture = ExtResource("1_uwxec")
+texture_region_size = Vector2i(20, 20)
+0:0/size_in_atlas = Vector2i(5, 5)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hhfj6"]
+texture = ExtResource("2_1pn4d")
+texture_region_size = Vector2i(20, 20)
+0:0/size_in_atlas = Vector2i(5, 5)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wae8j"]
+texture = ExtResource("3_ah8om")
+texture_region_size = Vector2i(20, 20)
+0:0/size_in_atlas = Vector2i(5, 5)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ha73p"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_p6vls")
+sources/1 = SubResource("TileSetAtlasSource_hhfj6")
+sources/2 = SubResource("TileSetAtlasSource_wae8j")
+
+[node name="Level3" type="Node"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(0.65, 0.65)
+tile_map_data = PackedByteArray("AAADACUAAAAAAAAAAAAJACUAAAAAAAAAAAAPACUAAAAAAAAAAAAVACUAAAAAAAAAAAAbACUAAAAAAAAAAAAhACUAAAAAAAAAAAAnACUAAAAAAAAAAAAtACUAAAAAAAAAAAAzACUAAAAAAAAAAAA5ACUAAAAAAAAAAAA/ACUAAAAAAAAAAABFACUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ha73p")
+
+[node name="Player" parent="." instance=ExtResource("4_1pn4d")]
+position = Vector2(105, 287)
+
+[node name="Robot" parent="." instance=ExtResource("5_wae8j")]
+position = Vector2(294, 332)
+
+[node name="LilyGate" parent="." instance=ExtResource("6_ha73p")]
+position = Vector2(564.00006, 307)
+scale = Vector2(5, 5)
+collision_layer = 8
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_vcx5n")]
+visible = false
+
+[node name="MenuButton" parent="." instance=ExtResource("8_56dhn")]
+visible = false
+
+[node name="Robot3" parent="." instance=ExtResource("9_ha73p")]
+position = Vector2(383, 297)

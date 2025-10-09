@@ -150,7 +150,7 @@ horizontal_alignment = 1
 [node name="MenuButton" parent="." instance=ExtResource("14_2aecg")]
 
 [node name="Goal" parent="." instance=ExtResource("15_6dial")]
-position = Vector2(4257.0005, 314.00003)
-scale = Vector2(5, 5)
+position = Vector2(4257, 233)
+scale = Vector2(0.5, 0.5)
 
 [node name="LevelComplete" parent="." instance=ExtResource("16_7nomh")]
