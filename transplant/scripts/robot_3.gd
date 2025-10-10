@@ -6,6 +6,10 @@ const JUMP_VELOCITY = -400.0
 
 @onready var area = $Area2D
 
+func _ready() -> void:
+	set_process(false)
+	set_physics_process(false)
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -25,7 +29,28 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func switch_control():
+	if not get_node("../Player").camera_on_player:
+		get_node("../Player").camera_on_player = true
+		set_process(false)
+		set_physics_process(false)
+		get_node("../Player").set_process(true)
+		get_node("../Player").set_physics_process(true)
+	else:
+		get_node("../Player").camera_on_player = false
+		set_process(true)
+		set_physics_process(true)
+		get_node("../Player").set_process(false)
+		get_node("../Player").set_physics_process(false)
+
 func _process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("switch") and is_on_floor():
+		switch_control()
+	
+	if not get_node("../Player").camera_on_player:
+		get_node("../Player").camera.global_position = $Marker2D.global_position
+	
 	var bodies = area.get_overlapping_bodies()
 	if not bodies.is_empty():
 		for body in bodies:

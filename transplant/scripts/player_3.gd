@@ -6,6 +6,9 @@ const JUMP_VELOCITY = -400.0
 
 @onready var anim = $AnimatedSprite2D
 @onready var area = $Area2D
+@onready var camera = $Camera2D
+
+var camera_on_player = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -29,41 +32,34 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("left") and is_on_floor():
 		anim.set_flip_h(false)
-		if get_node("../Robot").picked:
-			anim.play("walk_hold")
-		else:
-			anim.play("walk")
+		anim.play("walk")
 	
 	if Input.is_action_pressed("right") and is_on_floor():
 		anim.set_flip_h(true)
-		if get_node("../Robot").picked:
-			anim.play("walk_hold")
-		else:
-			anim.play("walk")
+		anim.play("walk")
 	
 	if Input.is_action_just_pressed("jump"):
-		if get_node("../Robot").picked:
-			anim.play("jump_hold")
-		else:
-			anim.play("jump")
+		anim.play("jump")
 	
 	if velocity.y > 0:
-		if get_node("../Robot").picked:
-			anim.play("fall_hold")
-		else:
-			anim.play("fall")
+		anim.play("fall")
 	
 	if not Input.is_anything_pressed() and is_on_floor():
-		if get_node("../Robot").picked:
-			anim.play("idle_hold")
-		else:
-			anim.play("idle")
+		anim.play("idle")
 	
 	if Input.is_action_pressed("left") and not is_on_floor():
 		anim.set_flip_h(false)
 	
 	if Input.is_action_pressed("right") and not is_on_floor():
 		anim.set_flip_h(true)
+	
+	if Input.is_action_just_pressed("switch") and is_on_floor():
+		switch_control()
+	
+	if camera_on_player:
+		camera.global_position = $Marker2D.global_position
+	else:
+		camera.global_position = get_node("../Robot/Marker2D").global_position
 	
 	var bodies = area.get_overlapping_bodies()
 	if not bodies.is_empty():
@@ -72,3 +68,17 @@ func _process(delta: float) -> void:
 				var position_a = self.position + Vector2(0, -2)
 				var position_b = self.position + Vector2(velocity.x * delta, -2)
 				self.position = position_a.lerp(position_b, delta)
+
+func switch_control():
+	if not camera_on_player:
+		camera_on_player = true
+		set_process(true)
+		set_physics_process(true)
+		get_node("../Robot").set_process(false)
+		get_node("../Robot").set_physics_process(false)
+	else:
+		camera_on_player = false
+		set_process(false)
+		set_physics_process(false)
+		get_node("../Robot").set_process(true)
+		get_node("../Robot").set_physics_process(true)
