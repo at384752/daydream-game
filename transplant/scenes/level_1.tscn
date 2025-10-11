@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=4 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=24 format=4 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="Texture2D" uid="uid://climrm7cyg5ha" path="res://textures/tile left.png" id="1_2os1m"]
-[ext_resource type="Script" uid="uid://p645sgcxqyjd" path="res://scripts/level.gd" id="1_go7sj"]
 [ext_resource type="Texture2D" uid="uid://cxfbivuv5dqcn" path="res://textures/tile right.png" id="2_go7sj"]
 [ext_resource type="Texture2D" uid="uid://djpspcvt8supm" path="res://textures/tile mid.png" id="3_7gny6"]
 [ext_resource type="Texture2D" uid="uid://ddlu2535a0kgf" path="res://textures/tile basic dark.png" id="4_2aecg"]
@@ -68,7 +67,6 @@ sources/9 = SubResource("TileSetAtlasSource_1s4pk")
 sources/3 = SubResource("TileSetAtlasSource_6dial")
 
 [node name="Level1" type="Node"]
-script = ExtResource("1_go7sj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1

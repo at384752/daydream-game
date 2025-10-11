@@ -6,6 +6,8 @@ extends StaticBody2D
 
 signal pressed
 
+var times_played = 0
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var bodies = area.get_overlapping_bodies()
@@ -13,6 +15,10 @@ func _process(_delta: float) -> void:
 		for body in bodies:
 			if body.name == "Player" or body.name == "Robot":
 				anim.set_frame(1)
+				while times_played < 1:
+					AudioManager.button_sound.play()
+					times_played = times_played + 1
 				pressed.emit()
 	else:
 		anim.set_frame(0)
+		times_played = 0

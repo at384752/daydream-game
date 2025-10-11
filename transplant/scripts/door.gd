@@ -14,4 +14,5 @@ func _ready() -> void:
 func _open():
 	if play_count < 1:
 		animation_player.play("open")
+		AudioManager.door_open.play()
 		play_count = play_count + 1

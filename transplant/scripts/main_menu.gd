@@ -3,6 +3,8 @@ extends Control
 func _ready() -> void:
 	preload("res://scenes/level_1.tscn")
 	preload("res://scenes/level_2.tscn")
+	preload("res://scenes/level_3.tscn")
+	preload("res://scenes/level_4.tscn")
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_select.tscn")

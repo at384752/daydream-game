@@ -31,13 +31,26 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="HSliderMaster" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.05
+value = 0.5
+
 [node name="HSliderMusic" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 6
+max_value = 10.0
+step = 0.5
+value = 5.0
 
 [node name="HSlider2SFX" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 6
+max_value = 10.0
+step = 0.5
+value = 5.0
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
@@ -48,4 +61,36 @@ offset_bottom = 83.0
 theme_override_font_sizes/font_size = 30
 text = "Back"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -76.0
+offset_right = 320.0
+offset_bottom = 71.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Master"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+text = "Music"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SFX"
+horizontal_alignment = 2
+
+[connection signal="value_changed" from="VBoxContainer/HSliderMaster" to="." method="_on_h_slider_master_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HSlider2SFX" to="." method="_on_h_slider_2sfx_value_changed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

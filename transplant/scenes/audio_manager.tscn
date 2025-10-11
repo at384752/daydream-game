@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp71xggqh3ln4"]
+
+[ext_resource type="AudioStream" uid="uid://dg4gkkh2je63v" path="res://sounds/button.wav" id="1_8qd8g"]
+[ext_resource type="Script" uid="uid://n8xe8lm0onab" path="res://scripts/audio_manager.gd" id="1_liach"]
+[ext_resource type="AudioStream" uid="uid://bqa51b8acv7bh" path="res://sounds/door-open.wav" id="3_3asnw"]
+[ext_resource type="AudioStream" uid="uid://c0kefsj2g5r55" path="res://sounds/footstep_metal.wav" id="4_m6ggh"]
+[ext_resource type="AudioStream" uid="uid://dk5iyywl2tk7l" path="res://sounds/ambient-piano-music.wav" id="5_aoitu"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_liach")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_8qd8g")
+bus = &"SFX"
+
+[node name="DoorOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3asnw")
+bus = &"SFX"
+
+[node name="FootstepMetal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m6ggh")
+bus = &"SFX"
+
+[node name="AmbientPianoMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_aoitu")
+autoplay = true
+bus = &"Music"

@@ -76,3 +76,7 @@ func _process(delta: float) -> void:
 				var position_a = self.position + Vector2(0, -2)
 				var position_b = self.position + Vector2(velocity.x * delta, -2)
 				self.position = position_a.lerp(position_b, delta)
+	
+	if (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and is_on_floor():
+		if not AudioManager.footstep_metal.is_playing():
+			AudioManager.footstep_metal.play()
