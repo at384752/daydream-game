@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu7rv"]
 
 [node name="LilyGate" type="StaticBody2D"]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -14,4 +14,4 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
-color = Color(1, 1, 1, 0.49803922)
+color = Color(0.88235295, 0.88235295, 0.8235294, 0.49803922)

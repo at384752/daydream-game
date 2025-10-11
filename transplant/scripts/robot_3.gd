@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 350.0
+const JUMP_VELOCITY = -500.0
 
 @onready var area = $Area2D
 
@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 func switch_control():
 	if not get_node("../Player").camera_on_player:
 		get_node("../Player").camera_on_player = true
+		$AnimatedSprite2D.play("idle")
 		set_process(false)
 		set_physics_process(false)
 		get_node("../Player").set_process(true)

@@ -69,4 +69,5 @@ text = "Back"
 
 [connection signal="pressed" from="HBoxContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

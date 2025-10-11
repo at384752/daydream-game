@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 350.0
+const JUMP_VELOCITY = -500.0
 
 @onready var anim = $AnimatedSprite2D
 @onready var area = $Area2D
@@ -78,6 +78,7 @@ func switch_control():
 		get_node("../Robot").set_physics_process(false)
 	else:
 		camera_on_player = false
+		anim.play("idle")
 		set_process(false)
 		set_physics_process(false)
 		get_node("../Robot").set_process(true)
