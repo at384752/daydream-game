@@ -22,7 +22,7 @@ animations = [{
 size = Vector2(20, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnboo"]
-size = Vector2(20, 4)
+size = Vector2(26, 4)
 
 [node name="Robot3" type="CharacterBody2D"]
 collision_layer = 4

@@ -19,11 +19,14 @@ func _pause():
 
 func _on_resume_button_pressed() -> void:
 	_resume()
+	AudioManager.ui_button.play()
 
 func _on_restart_button_pressed() -> void:
 	_resume()
+	AudioManager.ui_button.play()
 	get_tree().reload_current_scene()
 
 func _on_level_select_button_pressed() -> void:
 	_resume()
+	AudioManager.ui_button.play()
 	get_tree().change_scene_to_file("res://scenes/level_select.tscn")

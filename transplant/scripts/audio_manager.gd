@@ -4,3 +4,4 @@ extends Node
 @onready var door_open: AudioStreamPlayer = $DoorOpen
 @onready var footstep_metal: AudioStreamPlayer = $FootstepMetal
 @onready var ambient_piano_music: AudioStreamPlayer = $AmbientPianoMusic
+@onready var ui_button: AudioStreamPlayer = $UiButton
