@@ -5,10 +5,12 @@ const SPEED = 350.0
 const JUMP_VELOCITY = -500.0
 
 @onready var area = $Area2D
+@onready var anim = $AnimatedSprite2D
 
 func _ready() -> void:
 	set_process(false)
 	set_physics_process(false)
+	anim.play("idle")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -34,7 +36,7 @@ func switch_control():
 	AudioManager.ui_button.play()
 	if not get_node("../Player").camera_on_player:
 		get_node("../Player").camera_on_player = true
-		$AnimatedSprite2D.play("idle")
+		anim.play("idle")
 		set_process(false)
 		set_physics_process(false)
 		get_node("../Player").set_process(true)
@@ -48,8 +50,28 @@ func switch_control():
 
 func _process(delta: float) -> void:
 	
+	if not Input.is_anything_pressed() and is_on_floor():
+		anim.play("idle")
+	
+	if velocity.y > 0:
+		anim.play("fall")
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		await get_tree().create_timer(2 * delta).timeout
+		anim.play("jump")
+		AudioManager.jump.play()
+	
 	if Input.is_action_just_pressed("switch") and is_on_floor():
 		switch_control()
+	
+	if Input.is_action_pressed("left"):
+		anim.set_flip_h(false)
+	
+	if Input.is_action_pressed("right"):
+		anim.set_flip_h(true)
+	
+	if is_on_floor() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+		anim.play("walk")
 	
 	if not get_node("../Player").camera_on_player:
 		get_node("../Player").camera.global_position = $Marker2D.global_position
