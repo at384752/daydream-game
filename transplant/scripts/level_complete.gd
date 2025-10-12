@@ -7,6 +7,12 @@ func _ready() -> void:
 	hide()
 
 func on_level_complete() -> void:
+	if get_parent().name.contains("1"):
+		LevelsCompleted.level_2_disabled = false
+	elif get_parent().name.contains("2"):
+		LevelsCompleted.level_3_disabled = false
+	elif get_parent().name.contains("3"):
+		LevelsCompleted.level_4_disabled = false
 	show()
 	get_tree().paused = true
 

@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		await get_tree().create_timer(delta).timeout
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -31,25 +32,21 @@ func _physics_process(delta: float) -> void:
 @onready var anim = $AnimatedSprite2D
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("left") and is_on_floor():
-		anim.set_flip_h(false)
+	
+	if (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and is_on_floor():
 		if get_node("../Robot").picked:
 			anim.play("walk_hold")
 		else:
 			anim.play("walk")
 	
-	if Input.is_action_pressed("right") and is_on_floor():
-		anim.set_flip_h(true)
-		if get_node("../Robot").picked:
-			anim.play("walk_hold")
-		else:
-			anim.play("walk")
-	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		await get_tree().create_timer(2 * delta).timeout
 		if get_node("../Robot").picked:
 			anim.play("jump_hold")
+			AudioManager.jump.play()
 		else:
 			anim.play("jump")
+			AudioManager.jump.play()
 	
 	if velocity.y > 0:
 		if get_node("../Robot").picked:
@@ -63,10 +60,10 @@ func _process(delta: float) -> void:
 		else:
 			anim.play("idle")
 	
-	if Input.is_action_pressed("left") and not is_on_floor():
+	if Input.is_action_pressed("left"):
 		anim.set_flip_h(false)
 	
-	if Input.is_action_pressed("right") and not is_on_floor():
+	if Input.is_action_pressed("right"):
 		anim.set_flip_h(true)
 	
 	var bodies = area.get_overlapping_bodies()
@@ -76,3 +73,7 @@ func _process(delta: float) -> void:
 				var position_a = self.position + Vector2(0, -2)
 				var position_b = self.position + Vector2(velocity.x * delta, -2)
 				self.position = position_a.lerp(position_b, delta)
+	
+	if (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and is_on_floor():
+		if not AudioManager.footstep_metal.is_playing():
+			AudioManager.footstep_metal.play()

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bireql773wvlt"]
+
+[ext_resource type="Script" uid="uid://bp4f84mm5dijh" path="res://scripts/robot_4.gd" id="1_5ut6g"]
+[ext_resource type="Texture2D" uid="uid://c1ypdr180imb5" path="res://spritesheets/spritesheet_robot_idle.png" id="2_ydeqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myn2d"]
+atlas = ExtResource("2_ydeqv")
+region = Rect2(0, 0, 514, 514)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cstla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myn2d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcpfk"]
+size = Vector2(20, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnboo"]
+size = Vector2(26, 4)
+
+[node name="Robot4" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_5ut6g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3.0000038, 16.999998)
+scale = Vector2(0.274, 0.341)
+sprite_frames = SubResource("SpriteFrames_cstla")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_jcpfk")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -40)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_tnboo")
+
+[node name="Camera2D" type="Camera2D" parent="."]

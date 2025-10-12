@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		await get_tree().create_timer(delta).timeout
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -30,16 +31,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("left") and is_on_floor():
-		anim.set_flip_h(false)
+	if (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and is_on_floor():
 		anim.play("walk")
 	
-	if Input.is_action_pressed("right") and is_on_floor():
-		anim.set_flip_h(true)
-		anim.play("walk")
-	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		await get_tree().create_timer(2 * delta).timeout
 		anim.play("jump")
+		AudioManager.jump.play()
 	
 	if velocity.y > 0:
 		anim.play("fall")
@@ -47,10 +45,10 @@ func _process(delta: float) -> void:
 	if not Input.is_anything_pressed() and is_on_floor():
 		anim.play("idle")
 	
-	if Input.is_action_pressed("left") and not is_on_floor():
+	if Input.is_action_pressed("left"):
 		anim.set_flip_h(false)
 	
-	if Input.is_action_pressed("right") and not is_on_floor():
+	if Input.is_action_pressed("right"):
 		anim.set_flip_h(true)
 	
 	if Input.is_action_just_pressed("switch") and is_on_floor():
@@ -68,8 +66,13 @@ func _process(delta: float) -> void:
 				var position_a = self.position + Vector2(0, -2)
 				var position_b = self.position + Vector2(velocity.x * delta, -2)
 				self.position = position_a.lerp(position_b, delta)
+	
+	if (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and is_on_floor():
+		if not AudioManager.footstep_metal.is_playing():
+			AudioManager.footstep_metal.play()
 
 func switch_control():
+	AudioManager.ui_button.play()
 	if not camera_on_player:
 		camera_on_player = true
 		set_process(true)

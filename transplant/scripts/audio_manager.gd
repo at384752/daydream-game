@@ -5,3 +5,6 @@ extends Node
 @onready var footstep_metal: AudioStreamPlayer = $FootstepMetal
 @onready var ambient_piano_music: AudioStreamPlayer = $AmbientPianoMusic
 @onready var ui_button: AudioStreamPlayer = $UiButton
+@onready var jump: AudioStreamPlayer = $Jump
+@onready var rip: AudioStreamPlayer = $Rip
+@onready var birdsong_beside_stream: AudioStreamPlayer = $BirdsongBesideStream

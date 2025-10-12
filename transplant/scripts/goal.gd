@@ -19,5 +19,7 @@ func sacrifice() -> void:
 		get_node("../Player").set_process(false)
 		get_node("../Player").set_physics_process(false)
 		get_node("../Player").camera.set_zoom(Vector2(2, 2))
+		await get_tree().create_timer(0.65).timeout
+		AudioManager.rip.play()
 		await get_tree().create_timer(1.0).timeout
 		level_complete.emit()
