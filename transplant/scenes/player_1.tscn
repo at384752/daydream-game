@@ -6367,8 +6367,7 @@ position = Vector2(0, -75)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25583667, 0.26556414)
 sprite_frames = SubResource("SpriteFrames_e7i14")
-animation = &"transfer"
-frame_progress = 0.46807858
+animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 

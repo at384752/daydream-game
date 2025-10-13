@@ -4115,9 +4115,7 @@ position = Vector2(0, -75)
 position = Vector2(5.9999995, 0)
 scale = Vector2(0.25583667, 0.26556414)
 sprite_frames = SubResource("SpriteFrames_7ds0a")
-animation = &"transfer"
-frame = 12
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 
