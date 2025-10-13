@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://436f5lpw8hu6"]
+[gd_scene load_steps=8 format=3 uid="uid://436f5lpw8hu6"]
 
 [ext_resource type="Script" uid="uid://b0q0ir12tnnay" path="res://scripts/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://ccev8vkw3unc1" path="res://textures/background.png" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://cnvahxomrp557" path="res://textures/transplat title.png" id="3_bqqt6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_06t4h"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
+texture = ExtResource("2_ekxnf")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 
-[sub_resource type="SystemFont" id="SystemFont_06t4h"]
-
-[sub_resource type="Theme" id="Theme_7vrkn"]
-default_font = SubResource("SystemFont_06t4h")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
+texture = ExtResource("3_bqqt6")
 
 [node name="MainMenu" type="Control"]
 material = SubResource("CanvasItemMaterial_06t4h")
@@ -22,6 +25,15 @@ grow_vertical = 2
 script = ExtResource("1_06t4h")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+
+[node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +59,6 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rhts7")
 text = "Play"
 metadata/_edit_use_anchors_ = true
 
@@ -63,21 +74,29 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Credits"
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -183.0
-offset_top = 79.0
-offset_right = 183.0
-offset_bottom = 176.0
+offset_left = -240.5
+offset_top = 56.0
+offset_right = 242.5
+offset_bottom = 191.0
 grow_horizontal = 2
-theme = SubResource("Theme_7vrkn")
-theme_override_font_sizes/font_size = 55
-text = "Transplant"
-horizontal_alignment = 1
-vertical_alignment = 1
+color = Color(1, 1, 1, 0.26666668)
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -238.0
+offset_top = 47.0
+offset_right = 237.0
+offset_bottom = 202.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]

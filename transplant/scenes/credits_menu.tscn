@@ -1,7 +1,60 @@
-[gd_scene load_steps=124 format=3 uid="uid://euxj3yrpv8qh"]
+[gd_scene load_steps=143 format=3 uid="uid://euxj3yrpv8qh"]
 
 [ext_resource type="Script" uid="uid://bamel3raijp0d" path="res://scripts/credits_menu.gd" id="1_27l6r"]
+[ext_resource type="Texture2D" uid="uid://7k03rpi4vuh6" path="res://spritesheets/spritesheet_shrubbug_die.png" id="2_oqgs5"]
 [ext_resource type="Texture2D" uid="uid://b1qnisidc1d64" path="res://spritesheets/spritesheet_shrubbug_walk.png" id="2_p38dx"]
+[ext_resource type="Texture2D" uid="uid://ccev8vkw3unc1" path="res://textures/background.png" id="2_tljk3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urgkg"]
+texture = ExtResource("2_tljk3")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnars"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(0, 0, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82h5b"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(0, 514, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4g01"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(0, 1028, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7k24"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(0, 1542, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3yl2"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(0, 2056, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_311fd"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(0, 2570, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajmm1"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(3084, 0, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx568"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(3084, 514, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shb3j"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(3084, 1028, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s46dt"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(3084, 1542, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sghu0"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(3084, 2056, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmeou"]
+atlas = ExtResource("2_oqgs5")
+region = Rect2(3084, 2570, 514, 514)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqgs5"]
 atlas = ExtResource("2_p38dx")
@@ -487,6 +540,47 @@ region = Rect2(5140, 4626, 514, 514)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vnars")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82h5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4g01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7k24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3yl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_311fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajmm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx568")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shb3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s46dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sghu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmeou")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oqgs5")
 }, {
 "duration": 1.0,
@@ -847,9 +941,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_23jvr")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 12.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oqgs5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tljk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urgkg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6i0t"]
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -862,15 +964,18 @@ script = ExtResource("1_27l6r")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_urgkg")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -994,6 +1099,23 @@ horizontal_alignment = 1
 position = Vector2(103.00001, 553.00006)
 scale = Vector2(0.34824905, 0.3268482)
 sprite_frames = SubResource("SpriteFrames_vmeou")
-frame_progress = 0.12218282
+animation = &"walk"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -140.0
+offset_right = 172.0
+offset_bottom = -34.0
+grow_vertical = 0
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oqgs5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tljk3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_urgkg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c6i0t")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

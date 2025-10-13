@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dei2lwk12ct06"]
+[gd_scene load_steps=4 format=3 uid="uid://dei2lwk12ct06"]
 
 [ext_resource type="Script" uid="uid://dm10hbytbyhmi" path="res://scripts/options_menu.gd" id="1_liyum"]
+[ext_resource type="Texture2D" uid="uid://ccev8vkw3unc1" path="res://textures/background.png" id="2_ijpji"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hm4m4"]
+texture = ExtResource("2_ijpji")
 
 [node name="OptionsMenu" type="Control"]
 process_mode = 3
@@ -13,9 +17,21 @@ grow_vertical = 2
 script = ExtResource("1_liyum")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hm4m4")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

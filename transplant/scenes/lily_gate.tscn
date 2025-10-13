@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4r24a30x7sru"]
+[gd_scene load_steps=3 format=3 uid="uid://c4r24a30x7sru"]
+
+[ext_resource type="Texture2D" uid="uid://kxwdwnx8mkn8" path="res://textures/viny vines white.png" id="1_uxh1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu7rv"]
 
@@ -15,3 +17,7 @@ offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
 color = Color(0.88235295, 0.88235295, 0.8235294, 0.49803922)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_uxh1x")
