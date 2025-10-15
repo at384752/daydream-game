@@ -21,6 +21,12 @@ config/icon="res://icon.svg"
 AudioManager="*res://scenes/audio_manager.tscn"
 LevelsCompleted="*res://scripts/levels_completed.gd"
 
+[importer_defaults]
+
+texture={
+&"compress/mode": 1
+}
+
 [input]
 
 left={

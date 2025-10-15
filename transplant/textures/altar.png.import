@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/altar.png-e40e26053876ba177dd11264bbc038fd.ct
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

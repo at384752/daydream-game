@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/spritesheet_walk_3limbs.png-24d406c7de2e86aeb
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

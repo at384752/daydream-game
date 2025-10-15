@@ -1,9 +1,11 @@
 extends CanvasLayer
 
+var goal: StaticBody2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var goal_node = get_node("../Goal")
-	goal_node.level_complete.connect(on_level_complete)
+	goal = get_node("../Goal")
+	goal.level_complete.connect(on_level_complete)
 	hide()
 
 func on_level_complete() -> void:

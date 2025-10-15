@@ -2,14 +2,15 @@ extends StaticBody2D
 
 @export var link_code: int
 
-var play_count = 0
+var play_count: int = 0
+var button: StaticBody2D
 
-@onready var collision_door = $CollisionShape2D_TileDoor
-@onready var animation_player = $AnimationPlayer
+@onready var collision_door := $CollisionShape2D_TileDoor
+@onready var animation_player := $AnimationPlayer
 
 func _ready() -> void:
-	var button_node = get_node("../Button" + str(link_code))
-	button_node.pressed.connect(_open)
+	button = get_node("../Button" + str(link_code))
+	button.pressed.connect(_open)
 
 func _open():
 	if play_count < 1:

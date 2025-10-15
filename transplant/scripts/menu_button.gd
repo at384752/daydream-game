@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func _on_menu_button_pressed() -> void:
 	AudioManager.ui_button.play()
-	get_node("../PauseMenu")._pause()
+	get_node("../PauseMenu").pause()
 	hide()
 
 func _process(_delta: float) -> void:

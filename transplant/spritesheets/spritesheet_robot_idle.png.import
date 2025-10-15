@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/spritesheet_robot_idle.png-6f9fd6c48c8d91a5ea
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
